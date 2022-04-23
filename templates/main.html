@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>Умный Город</title>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="logo_container">
+                <img src="{{ url_for('static', filename='img/gerb.png') }}" alt="logo">
+                <h2>Галочка</h2>
+            </div>
+            <button class="signup"><a href="#">Вход</a></button>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <ul class="projects">
+                <form action="/back/" method="POST" >
+                    <input type="submit" />
+                </form>
+                {% set var = 0 %}
+                {% for i in datas %}
+                <form id="myForm" action="/new/window/" method="post"></form>
+                <li class="project" style="margin-top: 10px;" id="Butt">
+                    <p class="project_name">{{i.name[0]}}</p>
+                    {% if i.status == 2 %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <div class="status_container">
+                        <span class="green_marker"></span>
+                        <p>Принято</p>
+                        </div>
+                    </div>      
+                    </form>
+                    {% elif i.status == 0 %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <div class="status_container">
+                        <span class="empty_marker"></span>
+                        <p>На рассмотрении</p>
+                    </div>
+                    </div>
+                    {% elif i.status == 1 %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <div class="status_container">
+                        <span class="yellow_marker"></span>
+                        <p>В работе</p>
+                        </div>
+                    </div>
+                    {% elif i.status == 3 %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <div class="status_container">
+                        <span class="green_marker"></span>
+                        <p>Решено</p>
+                    </div>
+                    </div>
+                    {% else %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <span class="red_marker"></span>
+                        <p>Отклонено</p>
+                    </div>
+                    {% endif %}
+                </li>
+            </form>
+                {%endfor%}
+            </ul>
+        </div>
+    </main>
+</body>
+</html>

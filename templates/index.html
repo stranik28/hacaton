@@ -1,0 +1,23 @@
+ <html>
+     <head>
+         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+     </head>
+     <body>
+
+     <div style="color: black;">
+        {% for i in datas %}
+        <button style="display: flex; border: 2px solid black; border-radius: 5px; padding: 7px; margin-top: 10px; width: 100%;" >
+            <div style="display: flex; padding: auto; width: auto; margin: auto; width: 100%;">
+                <div style="width: 50%;">
+                    {{ i.name[0] }}     
+                </div>
+                <div style="width: 2px; background-color: black; padding-top: -7px; padding-bottom: -7px;"></div>
+                <div style="margin-left: 10;">
+                    Статус: {{i.status}}
+                </div>
+            </div>
+        </button>
+        {% endfor %}
+    </div>
+    </body>
+ </html>

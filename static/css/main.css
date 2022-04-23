@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font: 1rem "Source Code Pro", Montserrat, sans-serif; }
+
+.wrapper {
+  max-width: 1180px;
+  margin: 0 auto; }
+
+header {
+  background-color: #02226F;
+  height: 50px;
+  line-height: 50px;
+  color: whitesmoke; }
+  header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px; }
+  header .logo_container {
+    display: flex;
+    height: 50px;
+    max-height: 100%;
+    height: 50px; }
+    header .logo_container img {
+      display: block;
+      max-height: 90%;
+      margin: auto 10px auto 0; }
+  header .signup {
+    display: block;
+    background-color: inherit;
+    border: none; }
+    header .signup a {
+      display: block;
+      height: 100%;
+      font-size: 20px;
+      text-decoration: none;
+      line-height: 50px;
+      color: whitesmoke; }
+      header .signup a:hover {
+        background-color: #000363;
+        text-decoration: underline; }
+
+main {
+  font-size: 20px;
+  line-height: 50px; }
+  main ul.projects {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    height: 50px;
+    line-height: 50px;
+    color: whitesmoke; }
+    main ul.projects li.project {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 20px;
+      border: 1px solid black;
+      background-color: #02226F;
+      border-radius: 10px; }
+      main ul.projects li.project .status_container {
+        display: flex; }
+        main ul.projects li.project .status_container .status {
+          display: flex;
+          height: 70%;
+          border-radius: 20px;
+          margin: auto 0 auto 10px;
+          padding: 0 12px 0 10px;
+          background-color: #405F9F; }
+          main ul.projects li.project .status_container .status p {
+            line-height: 35px; }
+        main ul.projects li.project .status_container span {
+          width: 20px;
+          height: 20px;
+          margin: auto 3px;
+          border-radius: 50%; }
+
+.green_marker {
+  background-color: green; }
+
+.red_marker {
+  background-color: red; }
+
+.white_marker {
+  background-color: white; }
+
+.empty_marker {
+  border: 3px solid white; }
+
+.yellow_marker {
+  background-color: yellow; }
+
+/*# sourceMappingURL=styles.css.map */
+.logo_container > img:nth-child(1) {
+  display: block;
+  height: 100%;
+}
+
+body > header:nth-child(1) > div:nth-child(1) {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
