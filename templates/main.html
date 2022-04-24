@@ -2,32 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1.0"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <!-- <meta name="viewport" content="initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}"> 
     <title>Умный Город</title>
 </head>
 <body>
+    
     <header>
         <div class="wrapper">
             <div class="logo_container">
                 <img src="{{ url_for('static', filename='img/gerb.png') }}" alt="logo">
                 <h2>Галочка</h2>
             </div>
-            <button class="signup"><a href="#">Вход</a></button>
+            <form action="/login" method="get">
+            <button class="signup" type="submit">Вход</button>
+        </form>
         </div>
     </header>
     <main>
         <div class="wrapper">
-            <ul class="projects">
-                <form action="/back/" method="POST" >
-                    <input type="submit" />
-                </form>
-                {% set var = 0 %}
-                {% for i in datas %}
-                <form id="myForm" action="/new/window/" method="post"></form>
-                <li class="project" style="margin-top: 10px;" id="Butt">
-                    <p class="project_name">{{i.name[0]}}</p>
-                    {% if i.status == 2 %}
+                <div class="accordeon check">
+                    <div class="item">
+                        <label for="panel1">
+                            <div class="project_head">
+                                <p class="project_name">{{i[0].name[0]}}</p>
+                                {% if i[0].status[0] == "2" %}
                     <div class="status_container">
                         <p>Статус:</p>
                         <div class="status_container">
@@ -35,8 +37,7 @@
                         <p>Принято</p>
                         </div>
                     </div>      
-                    </form>
-                    {% elif i.status == 0 %}
+                    {% elif i[0].status[0] == "0" %}
                     <div class="status_container">
                         <p>Статус:</p>
                         <div class="status_container">
@@ -44,7 +45,7 @@
                         <p>На рассмотрении</p>
                     </div>
                     </div>
-                    {% elif i.status == 1 %}
+                    {% elif i[0].status[0] == "1" %}
                     <div class="status_container">
                         <p>Статус:</p>
                         <div class="status_container">
@@ -52,7 +53,7 @@
                         <p>В работе</p>
                         </div>
                     </div>
-                    {% elif i.status == 3 %}
+                    {% elif i[0].status[0] == "3" %}
                     <div class="status_container">
                         <p>Статус:</p>
                         <div class="status_container">
@@ -67,11 +68,230 @@
                         <p>Отклонено</p>
                     </div>
                     {% endif %}
-                </li>
-            </form>
-                {%endfor%}
-            </ul>
-        </div>
-    </main>
+                            </div>
+                        </label>
+                        <input id="panel1" type="checkbox" />
+                        <div class="panel">
+                            <form class="project_info" action="/form_update" method="post">
+                                <label>Project_id:</label>
+                                <input name="idshka" readonly="readonly" value={{i[0].creator[0]}}>
+                                <br/>
+                                <label for="desc1">Описание:</label><br>
+                                <textarea name="description" id="desc1" cols="100" rows="10">{{i[0].descript[0]}}</textarea>
+                                <div>
+                                    <label for="task_issue_date1">Дата начала задачи:</label>
+                                    <input  id="task_issue_date1" value={{i[0].start_time[0]}}>
+                                </div>
+
+                                <div>
+                                    <label for="task_end_date1">Дата окончания задачи:</label>
+                                    <input  id="task_issue_date1" value={{i[0].end_time[0]}}>
+                                </div>
+
+                                <div>
+                                    <p>Создатель задачи (id): {{i[0].creator[0]}}</p>
+                                </div>
+
+                                <div>
+                                    <p>Категория задачи (id): {{i[0].category[0]}}</p>
+                                </div>
+
+                                <div>
+                                    <label for="executor">Исполнитель:</label>
+                                    <input type="text" id="executor" value= {{i[0].executor[0]}} >
+                                </div>
+
+                                <div>
+                                    <p>Обратная связь: @galochkahack_bot </p>
+                                </div>
+
+                                <div class="buttons">
+                                    <button class="subtasks"><a href="#">Показать подзадачи</a></button>
+                                    <button class="save_changes" type="submit" style="color: white; font-size: 18px;">Сохранить изменения</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <label for="panel2">
+                            <div class="project_head">
+                                <p class="project_name">{{i[1].name[0]}}</p>
+                                {% if i[1].status[1] == "2" %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <div class="status_container">
+                        <span class="green_marker"></span>
+                        <p>Принято</p>
+                        </div>
+                    </div>      
+                    </form>
+                    {% elif i[1].status[0] == "0" %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <div class="status_container">
+                        <span class="empty_marker"></span>
+                        <p>На рассмотрении</p>
+                    </div>
+                    </div>
+                    {% elif i[1].status[0] == "1" %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <div class="status_container">
+                        <span class="yellow_marker"></span>
+                        <p>В работе</p>
+                        </div>
+                    </div>
+                    {% elif i[1].status[0] == "3" %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <div class="status_container">
+                        <span class="green_marker"></span>
+                        <p>Решено</p>
+                    </div>
+                    </div>
+                    {% else %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <span class="red_marker"></span>
+                        <p>Отклонено</p>
+                    </div>
+                    {% endif %}
+                            </div>
+                        </label>
+                        <input id="panel2" type="checkbox" />
+                        <div class="panel">
+                            <form class="project_info" action="/form_update" method="post">
+                                <label>Project_id:</label>
+                                <input name="idshka" readonly="readonly" value={{i[1].creator[0]}}>
+                                <br/>
+                                <label for="desc1">Описание:</label><br>
+                                <textarea name="description" id="desc1" cols="100" rows="10">{{i[1].descript[0]}}</textarea>
+                                <div>
+                                    <label for="task_issue_date1">Дата начала задачи:</label>
+                                    <input name = "task_issue_date1"  id="task_issue_date1" value={{i[1].start_time[0]}}>
+                                </div>
+
+                                <div>
+                                    <label for="task_end_date1">Дата окончания задачи:</label>
+                                    <input  id="task_end_date1" value={{i[1].end_time[0]}}>
+                                </div>
+
+                                <div>
+                                    <p>Создатель задачи (id): {{i[1].creator[0]}}</p>
+                                </div>
+
+                                <div>
+                                    <p>Категория задачи (id): {{i[1].category[0]}}</p>
+                                </div>
+
+                                <div>
+                                    <label for="executor">Исполнитель:</label>
+                                    <input name ="executor" type="text" id="executor" value= {{i[1].executor[0]}} >
+                                </div>
+
+                                <div>
+                                    <p>Обратная связь: @galochkahack_bot </p>
+                                </div>
+
+                                <div class="buttons">
+                                    <button class="subtasks"><a href="#">Показать подзадачи</a></button>
+                                    <button class="save_changes" type="submit" style="color: white; font-size: 18px;">Сохранить изменения</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <label for="panel3">
+                            <div class="project_head">
+                                <p class="project_name">{{i[2].name[0]}}</p>
+                                {% if i[2].status[0] == "2" %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <div class="status_container">
+                        <span class="green_marker"></span>
+                        <p>Принято</p>
+                        </div>
+                    </div>      
+                    </form>
+                    {% elif i[2].status[0] == "0" %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <div class="status_container">
+                        <span class="empty_marker"></span>
+                        <p>На рассмотрении</p>
+                    </div>
+                    </div>
+                    {% elif i[2].status[0] == "1" %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <div class="status_container">
+                        <span class="yellow_marker"></span>
+                        <p>В работе</p>
+                        </div>
+                    </div>
+                    {% elif i[2].status[0] == "3" %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <div class="status_container">
+                        <span class="green_marker"></span>
+                        <p>Решено</p>
+                    </div>
+                    </div>
+                    {% else %}
+                    <div class="status_container">
+                        <p>Статус:</p>
+                        <span class="red_marker"></span>
+                        <p>Отклонено</p>
+                    </div>
+                    {% endif %}
+                            </div>
+                        </label>
+                        <input id="panel3" type="checkbox" />
+                        <div class="panel">
+                            <form class="project_info" action="/form_update" method="post">
+                                <label >Project_id:</label>
+                                <input name="idshka" readonly="readonly" value={{i[2].creator[0]}}>
+                                <br/>
+                                <label for="desc1">Описание:</label><br>
+                                <textarea name="description" id="desc1" cols="100" rows="10">{{i[2].descript[0]}}</textarea>
+                                <div>
+                                    <label for="task_issue_date1">Дата начала задачи:</label>
+                                    <input  id="task_issue_date1" value={{i[2].start_time[0]}}>
+                                </div>
+
+                                <div>
+                                    <label for="task_end_date1">Дата окончания задачи:</label>
+                                    <input  id="task_issue_date1" value={{i[2].end_time[0]}}>
+                                </div>
+
+                                <div>
+                                    <p>Создатель задачи (id): {{i[2].creator[0]}}</p>
+                                </div>
+
+                                <div>
+                                    <p>Категория задачи (id): {{i[2].category[0]}}</p>
+                                </div>
+
+                                <div>
+                                    <label for="executor">Исполнитель:</label>
+                                    <input name = "executor" type="text" id="executor" value= {{i[2].executor[0]}} >
+                                </div>
+
+                                <div>
+                                    <p>Обратная связь: @galochkahack_bot </p>
+                                </div>
+
+                                <div class="buttons">
+                                    <button class="subtasks"><a href="#">Показать подзадачи</a></button>
+                                    <button class="save_changes" type="submit" style="color: white; font-size: 18px;">Сохранить изменения</button>
+                                </div>
+                            </form>
+                        </div>
+            </div>
+        </main>
 </body>
 </html>
+
+

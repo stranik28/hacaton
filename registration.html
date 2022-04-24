@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}"> 
+    <title>Регистрация</title>
+</head>
+<body>
+    <div class="singup">
+        <form class="form-container">   
+            <div class="head-title">
+                <img src="{{ url_for('static', filename='img/gerb.png') }}"  alt="logo">
+                <h2>Регистрация</h2>
+            </div>
+            <div class="name field_container">
+                <label for="name">ФИО:</label>
+                <input id="name" type="text" name="name" placeholder="" class="form-field">
+            </div>
+            <div class="email field_container">
+                <label for="email">Почта:</label>
+                <input id="email" type="email" name="email" placeholder="" class="form-field">
+            </div>
+            <div class="phone_number field_container">
+                <label for="phone">Телефон:</label>
+                <input id="phone" type="phone" name="phone_number" placeholder="" class="form-field">
+            </div>
+            <div class="department_code field_container">
+                <label for="department_code">Код отдела:</label>
+                <input id="department_code" type="number" name="department_code" placeholder="" class="form-field">
+            </div>
+            <div class="access_level field_container">
+                <label for="access_level">Уровень доступа:</label>
+                <input id="access_level" type="number" name="access_level" placeholder="" class="form-field">
+            </div>
+            <div class="login field_container">
+                <label for="login">Логин:</label>
+                <input id="login" type="text" name="login" placeholder="" class="form-field">
+            </div>
+            <div class="password field_container">
+                <label for="password">Пароль:</label>
+                <input id="password" type="password" name="password" placeholder="" class="form-field">
+            </div>
+            <button type="submit" class="submit_button">Подтвердить</button>
+        </form>
+    </div>
+</body>
+</html>
