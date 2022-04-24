@@ -1,23 +1,19 @@
  <html>
      <head>
          <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+         <link rel="stylesheet" href="{{ url_for('static', filename='css/headshoot.css') }}"/>
      </head>
      <body>
-
-     <div style="color: black;">
-        {% for i in datas %}
-        <button style="display: flex; border: 2px solid black; border-radius: 5px; padding: 7px; margin-top: 10px; width: 100%;" >
-            <div style="display: flex; padding: auto; width: auto; margin: auto; width: 100%;">
-                <div style="width: 50%;">
-                    {{ i.name[0] }}     
+        <header>
+            <div class="wrapper">
+                <div class="logo_container">
+                    <img src="{{ url_for('static', filename='img/gerb.png') }}" alt="logo">
+                    <h2>Галочка</h2>
                 </div>
-                <div style="width: 2px; background-color: black; padding-top: -7px; padding-bottom: -7px;"></div>
-                <div style="margin-left: 10;">
-                    Статус: {{i.status}}
-                </div>
+                <form action="/login" method="post">
+                    <button class="signup">Вход</button>
+                </form>
             </div>
-        </button>
-        {% endfor %}
-    </div>
     </body>
+    Здесь будут проекты
  </html>

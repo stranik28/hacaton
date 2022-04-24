@@ -4,26 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/categories.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/test1.css') }}">
-    <title>Умный Город</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/headshoot.css') }}">
+    <title>Регистрация</title>
 </head>
 <body>
     <header>
-        <div class="wrapper">
-          <div class="logo_container">
+    <div class="wrapper">
+        <div class="logo_container">
             <img src="{{ url_for('static', filename='img/gerb.png') }}" alt="logo">
             <h2>Галочка</h2>
-          </div>
-          <div class="button_container">
-            <form action="">
-              <button class="add_user">Добавить пользователя</button>
-            </form>
-            <form action="">
-              <button class="add_project">Добавить проект</button>
-            </form>
-          </div>
         </div>
-      </header>
+        <form action="/login" method="post">
+            <button class="signup">Вход</button>
+        </form>
+    </div>
+</header>
     <main>
         <div class="wrapper">
             <ul class="projects">
@@ -35,21 +30,21 @@
                     </form>
                 </li>
                 <li>
-                    <form action="/main" method="GET">
+                    <form action="/not_ready" method="GET">
                         <button class="project" id="2">
                             <p class="project_name">Умное ЖКХ</p>
                         </button>
                     </form>
                 </li>
                 <li>
-                    <form action="/main" method="GET">
+                    <form action="/not_ready" method="GET">
                         <button class="project" id="3">
                             <p class="project_name">Иновации для городской среды</p>
                         </button>
                     </form>
                 </li>
                 <li>
-                    <form action="/main" method="GET">
+                    <form action="/not_ready" method="GET">
                         <button class="project" id="4">
                             <p class="project_name">Умный городской транспорт</p>
                         </button>

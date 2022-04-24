@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_task.css') }}">
+    <title>Умный Город</title>
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <div class="logo_container">
+            <img src="{{ url_for('static', filename='img/gerb.png') }}" alt="logo">
+            <h2>Галочка</h2>
+        </div>
+        <button class="signup"><a href="#">Вход</a></button>
+    </div>
+</header>
+<main>
+    <div class="wrapper">
+        <div class="add_project">
+            <div class="project_head">
+                <p class="project_name">Добавление проекта:</p>
+            </div>
+            <div class="panel">
+                <form class="project_info" action="/add_task" method="POST">
+                    <div>
+                        <label for="task_name">Название задачи:</label>
+                        <input name="name" type="text" id="task_name">
+                    </div>
+
+                    <label for="description">Описание:</label><br>
+                    <textarea name="description" id="description" cols="100" rows="10"></textarea>
+                    <div>
+                        <label for="task_issue_date1">Дата начала задачи:</label>
+                        <input type="text" id="task_issue_date1" name = "start_date">
+                    </div>
+
+                    <div>
+                        <label for="task_end_date1">Дата окончания задачи:</label>
+                        <input type="text" id="task_end_date1" name = "end_date">
+                    </div>
+
+                    <div>
+                        <label for="task_category">Категория задачи:</label>
+                        <input type="number" id="task_category" name = "category">
+                    </div>
+
+                    <div>
+                        <label for="access_level">Уровень доступа:</label>
+                        <input type="number" id="access_level" name = "access">
+                    </div>
+
+                    <div>
+                        <label for="executor">Исполнитель:</label>
+                        <input type="text" id="executor" name = "executor">
+                    </div>
+
+                    <div>
+                        <label for="executor">Заказчик:</label>
+                        <input type="text" id="wallet" name = "executor">
+                    </div>
+
+                    <div class="buttons">
+                        <button type="submit" class="save_changes">Сохранить изменения</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+</body>
+</html>

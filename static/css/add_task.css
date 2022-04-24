@@ -4,7 +4,8 @@
   box-sizing: border-box; }
 
 html {
-  font: 1rem "Source Code Pro", Montserrat, sans-serif; }
+  font: 1rem "Source Code Pro", Montserrat, sans-serif;
+  background-color: lightgray; }
 
 .wrapper {
   max-width: 1180px;
@@ -12,8 +13,8 @@ html {
 
 header {
   background-color: #02226F;
-  height: 50px;
-  line-height: 50px;
+  height: 70px;
+  line-height: 70px;
   color: whitesmoke; }
   header .wrapper {
     display: flex;
@@ -21,7 +22,7 @@ header {
     padding: 0 10px; }
   header .logo_container {
     display: flex;
-    height: 50px; }
+    height: 70px; }
     header .logo_container img {
       display: block;
       max-height: 90%;
@@ -35,7 +36,7 @@ header {
       height: 100%;
       font-size: 20px;
       text-decoration: none;
-      line-height: 50px;
+      line-height: 70px;
       color: whitesmoke; }
       header .signup a:hover {
         background-color: #000363;
@@ -52,6 +53,9 @@ main {
     padding: 20px 0; }
     main .projects li {
       width: 100%; }
+
+.add_project {
+  margin-top: 20px; }
 
 .status_container {
   display: flex; }
@@ -72,21 +76,22 @@ main {
 
 .project_info {
   background-color: #405F9F;
-  padding: 15px;
+  padding: 20px 15px 15px 15px;
   border-radius: 0 0 10px 10px; }
   .project_info > div {
     display: flex;
     line-height: 2rem;
     padding: 5px; }
-  .project_info textarea#desc {
-    background-color: lightgray;
-    width: 70%;
-    font-size: 20px; }
   .project_info input {
     margin: 0 0 0 5px;
     background-color: lightgray;
-    color: grey;
-    border: none; }
+    color: black;
+    border: none;
+    font-size: 20px;
+    padding: 0 10px; }
+    .project_info input:focus {
+      background-color: #fff;
+      outline: none; }
   .project_info button.edit {
     width: 2rem;
     height: 2rem;
@@ -96,8 +101,6 @@ main {
     border: 1px solid white;
     border-radius: 2px;
     background-color: inherit; }
-    .project_info button.edit:hover {
-      cursor: pointer; }
     .project_info button.edit .white_filter {
       filter: invert(100%) sepia(0%) saturate(7480%) hue-rotate(200deg) brightness(111%) contrast(107%); }
   .project_info .buttons {
@@ -106,60 +109,40 @@ main {
     gap: 5px;
     padding-top: 10px; }
   .project_info .buttons button {
-    height: 2.5rem;
-    border-radius: 10px;
+    height: 3rem;
+    border-radius: 25px;
     background-color: #02226F;
     border: none; }
+    .project_info .buttons button:hover {
+      border-radius: 25px;
+      background-color: #000363; }
     .project_info .buttons button a {
+      line-height: 3rem;
       display: block;
-      padding: 0 10px;
+      padding: 0 15px;
       height: 100%;
       text-decoration: none;
       font-size: 20px;
       font-weight: 300;
-      line-height: 2.2rem;
       color: whitesmoke; }
       .project_info .buttons button a:hover {
+        border-radius: 25px;
         background-color: #000363;
-        text-decoration: underline;
-        border-radius: 10px; }
+        text-decoration: underline; }
 
 .project_head {
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 0 15px;
+  border-radius: 10px 10px 0 0;
   background-color: #02226F; }
 
-.accordeon input[type="radio"], .accordeon input[type="checkbox"] {
-  display: none; }
+#description {
+  width: 100%;
+  background: lightgray;
+  font-size: 20px; }
+  #description:focus {
+    background-color: #fff; }
 
-.accordeon input[type="radio"]:checked + .panel, .accordeon input[type="checkbox"]:checked + .panel {
-  height: auto;
-  visibility: visible;
-  opacity: 1; }
-
-.accordeon .panel {
-  height: 0;
-  visibility: hidden;
-  opacity: 0; }
-
-.accordeon .item {
-  margin: 10px; }
-
-.green_marker {
-  background-color: green; }
-
-.red_marker {
-  background-color: red; }
-
-.white_marker {
-  background-color: white; }
-
-.empty_marker {
-  border: 3px solid white; }
-
-.yellow_marker {
-  background-color: yellow; }
-
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=add_task.css.map */

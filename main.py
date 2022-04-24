@@ -1,4 +1,4 @@
-from unicodedata import category
+from crypt import methods
 from flask import render_template,Flask, redirect, url_for, request, g, flash, make_response
 import sqlite3
 
@@ -81,7 +81,7 @@ def login_odi():
     login = request.form.get("logg")
     password = request.form.get("password")
     if is_correct(login= login, passw = password) == True:
-        redi = redirect(url_for("main"))
+        redi = redirect(url_for("ctag"))
         redi.set_cookie("login",login)
         return redi
     else:
@@ -136,9 +136,12 @@ def form_update():
     executor = request.form.get('executor')
     id = request.form.get('idshka')
     con = connect_db();
-    f = "UPDATE task SET descript = '"+ str(descript)+  "', start_date = '" + str(start_date) + "', end_date = '"+ str(end_date)  +  "', category = " + str(ategory) + ", executor = "+ str(executor) + " WHERE task_id = " + str(id)+  ";"
+    cur = con.cursor()
+    f = "UPDATE task SET descript = '"+ str(descript)+  "', start_date = '" + str(start_date) + "', end_date = '"+ str(end_date)  +  "', category = " + str(ategory) + ", executor = "+ str(executor) + " WHERE task_id = " + str(id)+  " ;"
     print(f)
-    con.execute(f)
+    cur.execute(f)
+    con.commit()
+    con.close()
     return redirect(url_for("main"))
 
 
@@ -148,7 +151,7 @@ def back():
     lev = get_sur_access_level(stri)
     if lev != 0:
         lev -= 1
-    redi = redirect(url_for("main/0"))
+    redi = redirect(url_for("main"))
     redi.set_cookie("access",str(lev))
     return redi
 
@@ -163,14 +166,45 @@ def add_user():
     pas = request.form.get('password')
     category = request.form.get('department_code')
     passek = pas
-    cur = connect_db()
-    cur.execute("INSERT INTO user (name,email,phone,category,access,login,password) VALUES" + " (' " +  str(name) +  "', '" + str(email)+ "','" + str(photos) + "',"  + str(category) + "," + str(access) + ",'" + str(login) +"','" + str(passek) + "');")
+    con = connect_db()
+    cur = con.cursor()
+    cur.execute("INSERT INTO user (name,email,phone,category,access,login,password) VALUES" + " (' " +  str(name) +  "', '" + str(email)+ "','" + str(photos) + "',"  + str(category) + "," + str(access) + ",'" + str(log) +"','" + str(passek) + "');")
+    con.commit()
+    con.close()
     return render_template("login.html")
 
 @app.route("/add_user", methods = ["GET"])
 def add_users():
     return render_template("registration.html")
 
+@app.route("/add_task", methods = ["GET"])
+def add_task():
+    return render_template("add_task.html")
+
+@app.route("/add_task", methods = ["POST"])
+def add_task1():
+    name = str(request.form.get("name"))
+    descript = str(request.form.get("description"))
+    start_date  = str(request.form.get("start_date"))
+    end_date = str(request.form.get("end_date"))
+    category = str(request.form.get("category"))
+    access = str(request.form.get("access"))
+    executor = str(request.form.get("executor"))
+    wallet = str(request.form.get("wallet"))
+    con = connect_db()
+    cur = con.cursor()
+    cur.execute(("INSERT INTO task (name,access,executor,creator,descript,start_date,end_date,status,category,tg)"+ " VALUES ('" + name +"'," + access + ",'" + executor + "','" + wallet + "','" + descript + "','" + start_date + "','" + end_date + "'," + str(0) + " ,'" + category + "','@galochkahack_bot');"))
+    con.commit()
+    con.close()
+    return make_response(redirect(url_for("add_task")))
+
+@app.route("/not_ready", methods=["GET"])
+def crach():
+    ar = []
+    return render_template("index.html")
+
 
 if __name__ == "__main__":
     app.run()
+
+    

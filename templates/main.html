@@ -7,21 +7,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}"> 
-    <title>Умный Город</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/headshoot.css') }}">
+    <title>Регистрация</title>
 </head>
 <body>
-    
     <header>
         <div class="wrapper">
-            <div class="logo_container">
-                <img src="{{ url_for('static', filename='img/gerb.png') }}" alt="logo">
-                <h2>Галочка</h2>
-            </div>
-            <form action="/login" method="get">
-            <button class="signup" type="submit">Вход</button>
-        </form>
+          <div class="logo_container">
+            <img src="{{ url_for('static', filename='img/gerb.png') }}" alt="logo">
+            <h2>Галочка</h2>
+          </div>
+          <div class="button_container">
+            <form action="/add_user" method="get">
+              <button class="add_user">Добавить пользователя</button>
+            </form>
+            <form action="/add_task" method="get">
+              <button class="add_project">Добавить проект</button>
+            </form>
+          </div>
         </div>
-    </header>
+      </header>
     <main>
         <div class="wrapper">
                 <div class="accordeon check">
@@ -74,7 +79,7 @@
                         <div class="panel">
                             <form class="project_info" action="/form_update" method="post">
                                 <label>Project_id:</label>
-                                <input name="idshka" readonly="readonly" value={{i[0].creator[0]}}>
+                                <input name="idshka" readonly="readonly" value={{i[0].id}}>
                                 <br/>
                                 <label for="desc1">Описание:</label><br>
                                 <textarea name="description" id="desc1" cols="100" rows="10">{{i[0].descript[0]}}</textarea>

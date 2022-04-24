@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; }
+  
+  html {
+    font: 1rem "Source Code Pro", Montserrat, sans-serif; }
+  
+  .wrapper {
+    max-width: 1180px;
+    margin: 0 auto; }
+  
+  header {
+    background-color: #02226F;
+    height: 70px;
+    line-height: 70px;
+    color: whitesmoke; }
+    header .wrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px; }
+    header .logo_container {
+      display: flex;
+      height: 70px; }
+      header .logo_container img {
+        display: block;
+        max-height: 90%;
+        margin: auto 10px auto 0; }
+    header .signup {
+      display: block;
+      background-color: inherit;
+      border: none; }
+      header .signup a {
+        display: block;
+        height: 100%;
+        font-size: 20px;
+        text-decoration: none;
+        line-height: 70px;
+        color: whitesmoke; }
+        header .signup a:hover {
+          background-color: #000363;
+          text-decoration: underline; }
+  
+  main {
+    font-size: 20px;
+    line-height: 50px;
+    height: 50px;
+    color: whitesmoke; }
+    main .projects {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px 0; }
+      main .projects li {
+        width: 100%; }
+  
+  .status_container {
+    display: flex; }
+    .status_container .status {
+      display: flex;
+      height: 70%;
+      border-radius: 20px;
+      margin: auto 0 auto 10px;
+      padding: 0 12px 0 10px;
+      background-color: #405F9F; }
+      .status_container .status p {
+        line-height: 35px; }
+    .status_container span {
+      width: 20px;
+      height: 20px;
+      margin: auto 3px;
+      border-radius: 50%; }
+  
+  .project_info {
+    background-color: #405F9F;
+    padding: 15px;
+    border-radius: 0 0 10px 10px; }
+    .project_info > div {
+      display: flex;
+      line-height: 2rem;
+      padding: 5px; }
+    .project_info textarea#desc {
+      background-color: lightgray;
+      width: 70%;
+      font-size: 20px; }
+    .project_info input {
+      margin: 0 0 0 5px;
+      background-color: lightgray;
+      color: grey;
+      border: none; }
+    .project_info button.edit {
+      width: 2rem;
+      height: 2rem;
+      line-height: 0px;
+      margin: 0 0 0 5px;
+      padding: 1px;
+      border: 1px solid white;
+      border-radius: 2px;
+      background-color: inherit; }
+      .project_info button.edit:hover {
+        cursor: pointer; }
+      .project_info button.edit .white_filter {
+        filter: invert(100%) sepia(0%) saturate(7480%) hue-rotate(200deg) brightness(111%) contrast(107%); }
+    .project_info .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      padding-top: 10px; }
+    .project_info .buttons button {
+      height: 2.5rem;
+      border-radius: 10px;
+      background-color: #02226F;
+      border: none; }
+      .project_info .buttons button a {
+        display: block;
+        padding: 0 10px;
+        height: 100%;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 2.2rem;
+        color: whitesmoke; }
+        .project_info .buttons button a:hover {
+          background-color: #000363;
+          text-decoration: underline;
+          border-radius: 10px; }
+  
+  .project_head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    background-color: #02226F; }
+  
+  .accordeon input[type="radio"], .accordeon input[type="checkbox"] {
+    display: none; }
+  
+  .accordeon input[type="radio"]:checked + .panel, .accordeon input[type="checkbox"]:checked + .panel {
+    height: auto;
+    visibility: visible;
+    opacity: 1; }
+  
+  .accordeon .panel {
+    height: 0;
+    visibility: hidden;
+    opacity: 0; }
+  
+  .accordeon .item {
+    margin: 10px; }
+  
+  .green_marker {
+    background-color: green; }
+  
+  .red_marker {
+    background-color: red; }
+  
+  .white_marker {
+    background-color: white; }
+  
+  .empty_marker {
+    border: 3px solid white; }
+  
+  .yellow_marker {
+    background-color: yellow; }
+  
+  /*# sourceMappingURL=styles.css.map */
+  
