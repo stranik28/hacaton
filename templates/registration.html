@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test1.css') }}"> 
     <title>Регистрация</title>
 </head>
 <body>
     <div class="singup">
-        <form class="form-container">   
+        <form class="form-container" action="add_user" method="post">   
             <div class="head-title">
                 <img src="{{ url_for('static', filename='img/gerb.png') }}"  alt="logo">
                 <h2>Регистрация</h2>

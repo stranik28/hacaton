@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; }
+  
+  html {
+    font: 1rem "Source Code Pro", Montserrat, sans-serif; }
+  
+  .wrapper {
+    max-width: 1180px;
+    margin: 0 auto; }
+  
+  header {
+    background-color: #02226F;
+    height: 70px;
+    line-height: 70px;
+    color: whitesmoke; }
+    header .wrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px; }
+    header .logo_container {
+      display: flex;
+      height: 70px; }
+      header .logo_container img {
+        display: block;
+        max-height: 90%;
+        margin: auto 10px auto 0; }
+    header form {
+      height: 70px; }
+    header .signup {
+      display: block;
+      background-color: inherit;
+      border: none;
+      height: 70px;
+      line-height: 70px;
+      font-size: 20px;
+      color: whitesmoke; }
+      header .signup:hover {
+        background-color: #000363;
+        text-decoration: underline; }
+    header .button_container {
+      height: 70px;
+      display: flex; }
+      header .button_container form {
+        display: block;
+        height: 70px; }
+      header .button_container button {
+        height: 70px;
+        line-height: 70px;
+        color: whitesmoke;
+        font-size: 20px;
+        padding: 0 20px;
+        border: none;
+        background-color: #02226F; }
+        header .button_container button:hover {
+          background-color: #000363;
+          cursor: pointer; }
+  
+  /*# sourceMappingURL=header_2btn.css.map */
+  

@@ -79,13 +79,13 @@
                                 <label for="desc1">Описание:</label><br>
                                 <textarea name="description" id="desc1" cols="100" rows="10">{{i[0].descript[0]}}</textarea>
                                 <div>
-                                    <label for="task_issue_date1">Дата начала задачи:</label>
-                                    <input  id="task_issue_date1" value={{i[0].start_time[0]}}>
+                                    <label >Дата начала задачи:</label>
+                                    <input  name = "start_date" id="task_issue_date1" value={{i[0].start_time[0]}}>
                                 </div>
 
                                 <div>
-                                    <label for="task_end_date1">Дата окончания задачи:</label>
-                                    <input  id="task_issue_date1" value={{i[0].end_time[0]}}>
+                                    <label >Дата окончания задачи:</label>
+                                    <input name = "end_date" id="task_issue_date1" value={{i[0].end_time[0]}}>
                                 </div>
 
                                 <div>
@@ -93,12 +93,13 @@
                                 </div>
 
                                 <div>
-                                    <p>Категория задачи (id): {{i[0].category[0]}}</p>
+                                    <label>Категория задачи (id):</label>
+                                    <input name="task_category" value={{i[0].category[0]}}>
                                 </div>
 
                                 <div>
                                     <label for="executor">Исполнитель:</label>
-                                    <input type="text" id="executor" value= {{i[0].executor[0]}} >
+                                    <input name = "executor" type="text" id="executor" value= {{i[0].executor[0]}} >
                                 </div>
 
                                 <div>
@@ -169,12 +170,12 @@
                                 <textarea name="description" id="desc1" cols="100" rows="10">{{i[1].descript[0]}}</textarea>
                                 <div>
                                     <label for="task_issue_date1">Дата начала задачи:</label>
-                                    <input name = "task_issue_date1"  id="task_issue_date1" value={{i[1].start_time[0]}}>
+                                    <input name = "start_date"  id="task_issue_date1" value={{i[1].start_time[0]}}>
                                 </div>
 
                                 <div>
                                     <label for="task_end_date1">Дата окончания задачи:</label>
-                                    <input  id="task_end_date1" value={{i[1].end_time[0]}}>
+                                    <input name="end_date" id="task_end_date1" value={{i[1].end_time[0]}}>
                                 </div>
 
                                 <div>
@@ -182,7 +183,8 @@
                                 </div>
 
                                 <div>
-                                    <p>Категория задачи (id): {{i[1].category[0]}}</p>
+                                    <label>Категория задачи (id):</label>
+                                    <input name="task_category" value={{i[1].category[0]}}>
                                 </div>
 
                                 <div>
@@ -258,12 +260,12 @@
                                 <textarea name="description" id="desc1" cols="100" rows="10">{{i[2].descript[0]}}</textarea>
                                 <div>
                                     <label for="task_issue_date1">Дата начала задачи:</label>
-                                    <input  id="task_issue_date1" value={{i[2].start_time[0]}}>
+                                    <input name ="start_date"  id="task_issue_date1" value={{i[2].start_time[0]}}>
                                 </div>
 
                                 <div>
                                     <label for="task_end_date1">Дата окончания задачи:</label>
-                                    <input  id="task_issue_date1" value={{i[2].end_time[0]}}>
+                                    <input name="end_time" id="task_issue_date1" value={{i[2].end_time[0]}}>
                                 </div>
 
                                 <div>
@@ -271,7 +273,8 @@
                                 </div>
 
                                 <div>
-                                    <p>Категория задачи (id): {{i[2].category[0]}}</p>
+                                    <label>Категория задачи (id):</label>
+                                    <input name="task_category" value={{i[0].category[0]}}>
                                 </div>
 
                                 <div>

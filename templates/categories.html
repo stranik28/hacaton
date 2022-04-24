@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/categories.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test1.css') }}">
     <title>Умный Город</title>
 </head>
 <body>
     <header>
         <div class="wrapper">
-            <div class="logo_container">
-                <img src="{{ url_for('static', filename='img/gerb.png') }}" alt="logo"/>
-                <h2>Галочка</h2>
-            </div>
-            <form action="/login" method="get">
-                <button class="signup" type="submit">Вход</button>
+          <div class="logo_container">
+            <img src="{{ url_for('static', filename='img/gerb.png') }}" alt="logo">
+            <h2>Галочка</h2>
+          </div>
+          <div class="button_container">
+            <form action="">
+              <button class="add_user">Добавить пользователя</button>
             </form>
+            <form action="">
+              <button class="add_project">Добавить проект</button>
+            </form>
+          </div>
         </div>
-    </header>
+      </header>
     <main>
         <div class="wrapper">
             <ul class="projects">

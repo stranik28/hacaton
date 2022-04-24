@@ -1,8 +1,6 @@
 from unicodedata import category
-from simplecrypt import encrypt
 from flask import render_template,Flask, redirect, url_for, request, g, flash, make_response
 import sqlite3
-
 
 passkey = 'hahaton'
 app = Flask(__name__)
@@ -41,14 +39,13 @@ def is_correct(login, passw):
     cur = connect_db()
     post = cur.execute('SELECT * FROM user').fetchall()
     for i in post:
-        if (login == i[6]) & (encrypt(passw,passkey) == i[7]):
+        if (login == i[6]) & (passw == i[7]):
             return True
     return False
 
 def get_task(level):
     cur = connect_db()
     post = cur.execute("SELECT * FROM task WHERE access = " + str(level)+";").fetchall()
-    # print(post)
     return post
 
 def get_sur_access_level(login):
@@ -88,7 +85,7 @@ def login_odi():
         redi.set_cookie("login",login)
         return redi
     else:
-        flash("Hеправильный логин/пароль")
+        flash("Неправильный логин/пароль")
         return redirect(url_for("login"))
 
 
@@ -133,14 +130,13 @@ def main_post():
 @app.route("/form_update", methods = ["POST"])
 def form_update():
     descript = request.form.get('description')
-    start_date = request.form.get('task_start_date1')
-    end_date = request.form.get('task_end_date1')
+    start_date = request.form.get('start_date')
+    end_date = request.form.get('end_date')
     ategory = request.form.get('task_category')
-    access = request.form.get('access_level')
     executor = request.form.get('executor')
     id = request.form.get('idshka')
     con = connect_db();
-    f = "UPDATE task SET descript = '"+ str(descript)+  "', start_date = '" + str(start_date) + "', end_date = '"+ str(end_date)  +  "', category = " + str(ategory) +", access = "+ str(access) + ", executor = "+ str(executor) + " WHERE task_id = " + str(id)+  ";"
+    f = "UPDATE task SET descript = '"+ str(descript)+  "', start_date = '" + str(start_date) + "', end_date = '"+ str(end_date)  +  "', category = " + str(ategory) + ", executor = "+ str(executor) + " WHERE task_id = " + str(id)+  ";"
     print(f)
     con.execute(f)
     return redirect(url_for("main"))
@@ -161,14 +157,20 @@ def back():
 def add_user():
     name = request.form.get('name')
     email = request.form.get('email')
-    photos = request.form.get('phone')
+    photos = request.form.get('phone_number')
     access = request.form.get('access_level')
     log = request.form.get('login')
     pas = request.form.get('password')
-    access = request.form.get('access')
-    passek = encrypt(passkey,pas)
-    cur = connect_db();
-    cur.execute('''INSERT INTO users (name,email,phone,category,access,login,password) VALUES ''' + str(name) + str(email) + str(photos) + str(access) + str(category) + str(access) + str(login) + str(passek) + ";")
+    category = request.form.get('department_code')
+    passek = pas
+    cur = connect_db()
+    cur.execute("INSERT INTO user (name,email,phone,category,access,login,password) VALUES" + " (' " +  str(name) +  "', '" + str(email)+ "','" + str(photos) + "',"  + str(category) + "," + str(access) + ",'" + str(login) +"','" + str(passek) + "');")
+    return render_template("login.html")
+
+@app.route("/add_user", methods = ["GET"])
+def add_users():
+    return render_template("registration.html")
+
 
 if __name__ == "__main__":
     app.run()
