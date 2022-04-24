@@ -14,9 +14,9 @@
                 <h2>Авторизация</h2>
             </div>
             <div class="form-title">Логин</div>
-            <input class="form-field" type="text" name="logg" /><br />
+            <input class="form-field" type="text" name="logg" required/><br />
             <div class="form-title">Пароль</div>
-            <input class="form-field" type="password" name="password" /><br />
+            <input class="form-field" type="password" name="password" required/><br />
             <div class="Error">
             {% with message = get_flashed_messages() %}
                 {% if message %}

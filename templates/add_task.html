@@ -29,39 +29,39 @@
                 <form class="project_info" action="/add_task" method="POST">
                     <div>
                         <label for="task_name">Название задачи:</label>
-                        <input name="name" type="text" id="task_name">
+                        <input name="name" type="text" id="task_name" required>
                     </div>
 
                     <label for="description">Описание:</label><br>
                     <textarea name="description" id="description" cols="100" rows="10"></textarea>
                     <div>
                         <label for="task_issue_date1">Дата начала задачи:</label>
-                        <input type="text" id="task_issue_date1" name = "start_date">
+                        <input type="text" id="task_issue_date1" name = "start_date" required>
                     </div>
 
                     <div>
                         <label for="task_end_date1">Дата окончания задачи:</label>
-                        <input type="text" id="task_end_date1" name = "end_date">
+                        <input type="text" id="task_end_date1" name = "end_date" required>
                     </div>
 
                     <div>
                         <label for="task_category">Категория задачи:</label>
-                        <input type="number" id="task_category" name = "category">
+                        <input type="number" id="task_category" name = "category" required>
                     </div>
 
                     <div>
                         <label for="access_level">Уровень доступа:</label>
-                        <input type="number" id="access_level" name = "access">
+                        <input type="number" id="access_level" name = "access" required>
                     </div>
 
                     <div>
                         <label for="executor">Исполнитель:</label>
-                        <input type="text" id="executor" name = "executor">
+                        <input type="text" id="executor" name = "executor" required>
                     </div>
 
                     <div>
                         <label for="executor">Заказчик:</label>
-                        <input type="text" id="wallet" name = "executor">
+                        <input type="text" id="wallet" name = "executor" required>
                     </div>
 
                     <div class="buttons">

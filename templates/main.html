@@ -79,18 +79,18 @@
                         <div class="panel">
                             <form class="project_info" action="/form_update" method="post">
                                 <label>Project_id:</label>
-                                <input name="idshka" readonly="readonly" value={{i[0].id}}>
+                                <input name="idshka" readonly="readonly" value={{i[0].id}} required>
                                 <br/>
                                 <label for="desc1">Описание:</label><br>
                                 <textarea name="description" id="desc1" cols="100" rows="10">{{i[0].descript[0]}}</textarea>
                                 <div>
                                     <label >Дата начала задачи:</label>
-                                    <input  name = "start_date" id="task_issue_date1" value={{i[0].start_time[0]}}>
+                                    <input  name = "start_date" id="task_issue_date1" value={{i[0].start_time[0]}} required>
                                 </div>
 
                                 <div>
                                     <label >Дата окончания задачи:</label>
-                                    <input name = "end_date" id="task_issue_date1" value={{i[0].end_time[0]}}>
+                                    <input name = "end_date" id="task_issue_date1" value={{i[0].end_time[0]}} required>
                                 </div>
 
                                 <div>
@@ -99,12 +99,12 @@
 
                                 <div>
                                     <label>Категория задачи (id):</label>
-                                    <input name="task_category" value={{i[0].category[0]}}>
+                                    <input name="task_category" value={{i[0].category[0]}} required>
                                 </div>
 
                                 <div>
                                     <label for="executor">Исполнитель:</label>
-                                    <input name = "executor" type="text" id="executor" value= {{i[0].executor[0]}} >
+                                    <input name = "executor" type="text" id="executor" value= {{i[0].executor[0]}} required>
                                 </div>
 
                                 <div>
